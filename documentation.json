@@ -25317,6 +25317,17 @@
                         "name": "ff",
                         "description": "Comma separated list of Add on types for airline",
                         "required": true
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "3411a741-5b91-4b0b-aee1-86ceb99e71e7"
+                        },
+                        "in": "query",
+                        "name": "crId",
+                        "description": "request id that used for tracking purpose, same value as received in headers",
+                        "required": true
                     }
                 ],
                 "description": "API for providing airline addons"
