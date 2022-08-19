@@ -21762,6 +21762,804 @@
                 ]
             }
         },
+        "/flights-gobiz-search/v1/addons":
+        {
+            "parameters":
+            [],
+            "post":
+            {
+                "summary": "apply coupon",
+                "operationId": "post-flights-gobiz-search-v1-apply-coupon",
+                "responses":
+                {
+                    "200":
+                    {
+                        "description": "OK",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "description": "",
+                                    "type": "object",
+                                    "x-examples":
+                                    {
+                                        "example-1":
+                                        {
+                                            "blockedPaymentOptions": "GIFT_CARD_PM,MMT_REWARD_BONUS_PM",
+                                            "message": "",
+                                            "tnc": "",
+                                            "discountInfo":
+                                            [
+                                                {
+                                                    "discount": 50,
+                                                    "discountType": "INSTANT",
+                                                    "discountTypeCode": "INSTANT",
+                                                    "manualCashbackProcess": false
+                                                }
+                                            ],
+                                            "couponCode": "TTT",
+                                            "discountSrc": "CDF",
+                                            "slashFareAtReview": true,
+                                            "status": "SUCCESS",
+                                            "statusCode": 0
+                                        }
+                                    },
+                                    "properties":
+                                    {
+                                        "message":
+                                        {
+                                            "type": "string",
+                                            "description": "relavant message about coupon application"
+                                        },
+                                        "tnc":
+                                        {
+                                            "type": "string",
+                                            "description": "url for terms and conditions page"
+                                        },
+                                        "discountInfo":
+                                        {
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                            "minItems": 1,
+                                            "items":
+                                            {
+                                                "type": "object",
+                                                "properties":
+                                                {
+                                                    "discount":
+                                                    {
+                                                        "type": "number",
+                                                        "description": "discount amount",
+                                                        "example": 100
+                                                    },
+                                                    "discountType":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1,
+                                                        "example": "INSTANT",
+                                                        "description": "describes discount type"
+                                                    },
+                                                    "discountTypeCode":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1,
+                                                        "description": "code for this discount type"
+                                                    },
+                                                    "manualCashbackProcess":
+                                                    {
+                                                        "type": "boolean",
+                                                        "description": "This field indicates whether bank cashback is manual"
+                                                    }
+                                                },
+                                                "required":
+                                                [
+                                                    "discount",
+                                                    "discountType",
+                                                    "discountTypeCode",
+                                                    "manualCashbackProcess"
+                                                ]
+                                            }
+                                        },
+                                        "couponCode":
+                                        {
+                                            "type": "string",
+                                            "minLength": 1,
+                                            "description": "coupon code received in request",
+                                            "example": "MMTAMAZON"
+                                        },
+                                        "discountSrc":
+                                        {
+                                            "type": "string",
+                                            "minLength": 1,
+                                            "description": "source for this discount",
+                                            "example": "CDF"
+                                        },
+                                        "slashFareAtReview":
+                                        {
+                                            "type": "boolean",
+                                            "description": "true indicates that client can show discounted fare on review page"
+                                        },
+                                        "status":
+                                        {
+                                            "type": "string",
+                                            "minLength": 1,
+                                            "description": "SUCCESS/FAILED status",
+                                            "example": "SUCCESS"
+                                        },
+                                        "statusCode":
+                                        {
+                                            "type": "number",
+                                            "description": "http status",
+                                            "example": 200
+                                        }
+                                    },
+                                    "required":
+                                    [
+                                        "message",
+                                        "tnc",
+                                        "discountInfo",
+                                        "couponCode",
+                                        "discountSrc",
+                                        "slashFareAtReview",
+                                        "status",
+                                        "statusCode"
+                                    ]
+                                },
+                                "examples":
+                                {
+                                    "apply coupon response":
+                                    {
+                                        "value":
+                                        {
+                                            "message": "",
+                                            "tnc": "",
+                                            "discountInfo":
+                                            [
+                                                {
+                                                    "discount": 50,
+                                                    "discountType": "INSTANT",
+                                                    "discountTypeCode": "INSTANT",
+                                                    "manualCashbackProcess": false
+                                                }
+                                            ],
+                                            "couponCode": "TTT",
+                                            "discountSrc": "CDF",
+                                            "slashFareAtReview": true,
+                                            "status": "SUCCESS",
+                                            "statusCode": 200
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400":
+                    {
+                        "description": "Bad Request",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "description": "",
+                                    "type": "object",
+                                    "properties":
+                                    {
+                                        "status":
+                                        {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "errors":
+                                        {
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                            "minItems": 1,
+                                            "items":
+                                            {
+                                                "required":
+                                                [
+                                                    "code",
+                                                    "message",
+                                                    "description"
+                                                ],
+                                                "properties":
+                                                {
+                                                    "code":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "message":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "description":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "statusCode":
+                                        {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "required":
+                                    [
+                                        "status",
+                                        "errors",
+                                        "statusCode"
+                                    ],
+                                    "x-examples":
+                                    {
+                                        "example-1":
+                                        {
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "code": "GOBIZ-MISC-COMMON-0011",
+                                                    "message": "INVALID_CLIENT_NAME",
+                                                    "description": "invalid client name"
+                                                }
+                                            ],
+                                            "statusCode": 400
+                                        }
+                                    }
+                                },
+                                "examples":
+                                {
+                                    "invalid client headers":
+                                    {
+                                        "value":
+                                        {
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "code": "GOBIZ-MISC-COMMON-0014",
+                                                    "message": "INVALID_CLIENT_HEADERS",
+                                                    "description": "client configuration not found for given client params"
+                                                }
+                                            ],
+                                            "statusCode": 400
+                                        }
+                                    },
+                                    "invalid client type":
+                                    {
+                                        "value":
+                                        {
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "code": "GOBIZ-MISC-COMMON-0013",
+                                                    "message": "INVALID_CLIENT_TYPE",
+                                                    "description": "invalid client type"
+                                                }
+                                            ],
+                                            "statusCode": 400
+                                        }
+                                    },
+                                    "invalid client id":
+                                    {
+                                        "value":
+                                        {
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "code": "GOBIZ-MISC-COMMON-0012",
+                                                    "message": "INVALID_CLIENT_ID",
+                                                    "description": "invalid client id"
+                                                }
+                                            ],
+                                            "statusCode": 400
+                                        }
+                                    },
+                                    "invalid client name":
+                                    {
+                                        "value":
+                                        {
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "code": "GOBIZ-MISC-COMMON-0011",
+                                                    "message": "INVALID_CLIENT_NAME",
+                                                    "description": "invalid client name"
+                                                }
+                                            ],
+                                            "statusCode": 400
+                                        }
+                                    },
+                                    "invalid brand":
+                                    {
+                                        "value":
+                                        {
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "code": "GOBIZ-MISC-COMMON-0010",
+                                                    "message": "INVALID_BRAND",
+                                                    "description": "invalid brand"
+                                                }
+                                            ],
+                                            "statusCode": 400
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404":
+                    {
+                        "description": "Not Found",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "description": "",
+                                    "type": "object",
+                                    "properties":
+                                    {
+                                        "discountSrc":
+                                        {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "slashFareAtReview":
+                                        {
+                                            "type": "boolean"
+                                        },
+                                        "status":
+                                        {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "errors":
+                                        {
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                            "minItems": 1,
+                                            "items":
+                                            {
+                                                "required":
+                                                [
+                                                    "code",
+                                                    "message",
+                                                    "description"
+                                                ],
+                                                "properties":
+                                                {
+                                                    "code":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "message":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    },
+                                                    "description":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "statusCode":
+                                        {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "required":
+                                    [
+                                        "discountSrc",
+                                        "slashFareAtReview",
+                                        "status",
+                                        "errors",
+                                        "statusCode"
+                                    ],
+                                    "x-examples":
+                                    {
+                                        "example-1":
+                                        {
+                                            "discountSrc": "CDF",
+                                            "slashFareAtReview": false,
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "code": "CORE-MISC-ENB-001",
+                                                    "message": "itinerary not found",
+                                                    "description": "itinerary not found"
+                                                }
+                                            ],
+                                            "statusCode": 404
+                                        }
+                                    }
+                                },
+                                "examples":
+                                {
+                                    "invalid itinerary id case":
+                                    {
+                                        "value":
+                                        {
+                                            "discountSrc": "CDF",
+                                            "slashFareAtReview": false,
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "code": "CORE-MISC-ENB-001",
+                                                    "message": "itinerary not found",
+                                                    "description": "itinerary not found"
+                                                }
+                                            ],
+                                            "statusCode": 404
+                                        }
+                                    },
+                                    "invalid coupon case":
+                                    {
+                                        "value":
+                                        {
+                                            "discountSrc": "CDF",
+                                            "slashFareAtReview": false,
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "code": "CORE-MISC-ENB-006",
+                                                    "message": "Sorry! Promocode used is not applicable at the moment.",
+                                                    "description": "Error While Applying Coupon"
+                                                }
+                                            ],
+                                            "statusCode": 404
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500":
+                    {
+                        "description": "Internal Server Error",
+                        "content":
+                        {
+                            "application/json":
+                            {
+                                "schema":
+                                {
+                                    "description": "",
+                                    "type": "object",
+                                    "x-examples":
+                                    {
+                                        "example-1":
+                                        {
+                                            "discountSrc": "CDF",
+                                            "slashFareAtReview": false,
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "downStreamErrors":
+                                                    [
+                                                        {
+                                                            "code": "FMS-ENB-012",
+                                                            "message": "Sorry! Promocode used is not applicable at the moment.",
+                                                            "description": "Error While Applying Coupon"
+                                                        }
+                                                    ],
+                                                    "code": "CORE-MISC-ENB-006",
+                                                    "message": "error in apply coupon response from downstream",
+                                                    "description": "error in apply coupon response from downstream"
+                                                }
+                                            ],
+                                            "statusCode": 0
+                                        }
+                                    },
+                                    "properties":
+                                    {
+                                        "discountSrc":
+                                        {
+                                            "type": "string",
+                                            "minLength": 1
+                                        },
+                                        "slashFareAtReview":
+                                        {
+                                            "type": "boolean"
+                                        },
+                                        "status":
+                                        {
+                                            "type": "string",
+                                            "minLength": 1,
+                                            "description": "SUCCESS or FAILED status"
+                                        },
+                                        "errors":
+                                        {
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                            "minItems": 1,
+                                            "items":
+                                            {
+                                                "type": "object",
+                                                "properties":
+                                                {
+                                                    "code":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1,
+                                                        "description": "error code",
+                                                        "example": "CORE-MISC-ENB-006"
+                                                    },
+                                                    "message":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1,
+                                                        "description": "error message",
+                                                        "example": "error in apply coupon response from downstream"
+                                                    },
+                                                    "description":
+                                                    {
+                                                        "type": "string",
+                                                        "minLength": 1,
+                                                        "description": "error description",
+                                                        "example": "error in apply coupon response from downstream"
+                                                    }
+                                                },
+                                                "required":
+                                                [
+                                                    "code",
+                                                    "message",
+                                                    "description"
+                                                ]
+                                            }
+                                        },
+                                        "statusCode":
+                                        {
+                                            "type": "number",
+                                            "example": 200,
+                                            "description": "http status"
+                                        }
+                                    },
+                                    "required":
+                                    [
+                                        "discountSrc",
+                                        "slashFareAtReview",
+                                        "status",
+                                        "errors",
+                                        "statusCode"
+                                    ]
+                                },
+                                "examples":
+                                {
+                                    "downstream error case":
+                                    {
+                                        "value":
+                                        {
+                                            "discountSrc": "CDF",
+                                            "slashFareAtReview": false,
+                                            "status": "FAILED",
+                                            "errors":
+                                            [
+                                                {
+                                                    "code": "CORE-MISC-ENB-006",
+                                                    "message": "EARN_AND_BURN_CONNECTOR_STATUS_RUNTIME_EXCEPTION",
+                                                    "description": "Status Runtime Exception While EarnAndBurn Connector call"
+                                                }
+                                            ],
+                                            "statusCode": 500
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "apply coupon",
+                "parameters":
+                [
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "android or ios or windows"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-os",
+                        "description": "user device operating system "
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "7.5.6"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-app-ver",
+                        "description": "user device app version"
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "visitorid123344566"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-vid",
+                        "description": "visitor id"
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "marketingcloudid1234545"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-mcid ",
+                        "description": "marketing cloud id "
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "cshcgahdcadsfjafdhfajfdsjfas"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-device-id ",
+                        "description": "user device id"
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "enum":
+                            [
+                                "ANDROID",
+                                "IOS",
+                                "DESKTOP",
+                                "PWA"
+                            ],
+                            "example": "ANDROID"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-pfm ",
+                        "description": "platform from which request is coming "
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "Google Chrome X.4"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-user-agent ",
+                        "description": "user agent"
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "timezone"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-timezone ",
+                        "description": "time zone"
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "requestid122334434"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-request-id ",
+                        "required": true,
+                        "description": "request id used for tracking "
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-user-phonenum ",
+                        "required": true,
+                        "description": "user phone number "
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "x-gommt-user-countrycode",
+                        "required": true,
+                        "description": "user phone country code "
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "b28d7069a306a06ef138a444136d79906aa8558c"
+                        },
+                        "in": "query",
+                        "name": "itId",
+                        "description": "ItineraryId provided as part of review response ",
+                        "required": true
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string"
+                        },
+                        "in": "query",
+                        "name": "crId",
+                        "description": "request id that used for tracking purpose, same value as received in headers",
+                        "required": true
+                    }
+                ],
+                "requestBody":
+                {
+                    "content":
+                    {
+                        "application/json":
+                        {
+                            "schema":
+                            {
+                                "description": "",
+                                "type": "object",
+                                "x-examples":
+                                {
+                                    "example-1":
+                                    {
+                                        "couponCode": "MMTAMAZON"
+                                    }
+                                },
+                                "properties":
+                                {
+                                    "couponCode":
+                                    {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "description": "coupon code",
+                                        "example": "MMTAMAZON"
+                                    }
+                                },
+                                "required":
+                                [
+                                    "couponCode"
+                                ]
+                            },
+                            "examples":
+                            {
+                                "example-1":
+                                {
+                                    "value":
+                                    {
+                                        "couponCode": "MMTAMAZON"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": "This API is POST operation takes couponcode as an input along with the itinerary id provided as part of review response.\n\nIt validates the couponcode and gives discount details in response."
+                }
+            }
+        },
         "/flights-gobiz-book/v1/generate-booking-id":
         {
             "parameters":
