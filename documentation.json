@@ -1,5 +1,8 @@
 {
   "openapi": "3.0.0",
+  "x-stoplight": {
+    "id": "lprbr9bl6dn2x"
+  },
   "info": {
     "title": "FLIGHTS-PRE-SALE-API",
     "version": "1.2",
