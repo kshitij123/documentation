@@ -8491,6 +8491,1780 @@
         "description": "Review API takes rkey provided in search api response as input and return the fare details after checking the fare availability with the airline.  \n\nAs part of response, it returns the journey details, flights involved in that journey and pnrs involved in that journey along with the fare details of the pnrs and complete recommendation. Also, it returns the itinerary id. Itinerary Id is a state of the user which finally gets booked, after review it now contains the review state having fare details. \n\nThis API also provides the best coupons also known as recommended coupons applicable on this recommendation.  \n\nThis API is GET operation either based on rkey or itid . If used without itid as request param it returns the current fare after checking the airline fare availability.  If itid has been provided as request param then this api returns the cached review state or return error if review state is not available. "
       }
     },
+    "/flights-gobiz-search/v1/addons/airline": {
+      "get": {
+        "summary": "review",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "SUCCESS",
+                      "statusCode": 0,
+                      "review": {
+                        "recomendation": {
+                          "journeyList": [
+                            {
+                              "journeyKey": "BLR$MYQ$COK$1805220900$AI-9505|COK$BOM$1805222010$AI-699",
+                              "buddyResult": false,
+                              "depDate": "2022-05-18 09:00",
+                              "arrDate": "2022-05-18 22:25",
+                              "durationInMins": 805,
+                              "flightPnrLookupInfo": [
+                                {
+                                  "flyingDay": 0,
+                                  "flightLookupKey": "BLR$MYQ$COK$2022-05-18 09:00$AI-9505",
+                                  "pnrGroupNum": 0
+                                },
+                                {
+                                  "flyingDay": 0,
+                                  "flightLookupKey": "COK$BOM$2022-05-18 20:10$AI-699",
+                                  "pnrGroupNum": 0,
+                                  "prevFlightConnectingType": "CHANGE_OF_PLANE",
+                                  "prevFlightConnectingDurationInMins": 525
+                                }
+                              ]
+                            }
+                          ],
+                          "fareInfo": {
+                            "pnrGrpdMultiFareInfo": {
+                              "0": {
+                                "fareInfos": [
+                                  {
+                                    "paxWiseFare": {
+                                      "ADULT": {
+                                        "base": 3033,
+                                        "taxes": 1047,
+                                        "serviceFee": 0,
+                                        "convenienceFee": 0,
+                                        "instantDiscount": 0,
+                                        "totalFare": 4080,
+                                        "taxesSummary": [
+                                          {
+                                            "a": 218,
+                                            "c": "IN",
+                                            "m": ""
+                                          },
+                                          {
+                                            "a": 173,
+                                            "c": "K3",
+                                            "m": ""
+                                          },
+                                          {
+                                            "a": 236,
+                                            "c": "P2",
+                                            "m": ""
+                                          },
+                                          {
+                                            "a": 420,
+                                            "c": "YR",
+                                            "m": ""
+                                          }
+                                        ],
+                                        "airlineFixedFeesList": [],
+                                        "airlineFixedFee": 0
+                                      }
+                                    },
+                                    "totalFare": {
+                                      "base": 3033,
+                                      "taxes": 1047,
+                                      "serviceFee": 0,
+                                      "convenienceFee": 0,
+                                      "instantDiscount": 0,
+                                      "totalFare": 4080,
+                                      "airlineFixedFee": 0
+                                    },
+                                    "fareServices": {
+                                      "REFUNDABLE": {
+                                        "status": "CHA",
+                                        "name": "REFUNDABLE",
+                                        "value": "",
+                                        "text": "Refundable, cancellation penalty applicable",
+                                        "unit": "",
+                                        "valueType": "TEXT",
+                                        "important": false
+                                      },
+                                      "MIN_TICKETING_TIME": {
+                                        "status": "INC",
+                                        "name": "MIN_TICKETING_TIME",
+                                        "value": "1",
+                                        "text": "",
+                                        "unit": "SECS",
+                                        "valueType": "NUMERIC",
+                                        "important": false
+                                      },
+                                      "AMENDABLE": {
+                                        "status": "CHA",
+                                        "name": "AMENDABLE",
+                                        "value": "",
+                                        "text": "Re-scheduling penalty applicable",
+                                        "unit": "",
+                                        "valueType": "TEXT",
+                                        "important": false
+                                      },
+                                      "CHECKIN_BAGGAGE_ALLOWANCE": {
+                                        "status": "INC",
+                                        "name": "CHECKIN_BAGGAGE_ALLOWANCE",
+                                        "value": "15",
+                                        "text": "",
+                                        "unit": "KGS",
+                                        "valueType": "NUMERIC",
+                                        "important": false
+                                      },
+                                      "MAX_TICKETING_TIME": {
+                                        "status": "INC",
+                                        "name": "MAX_TICKETING_TIME",
+                                        "value": "15",
+                                        "text": "",
+                                        "unit": "MINS",
+                                        "valueType": "NUMERIC",
+                                        "important": false
+                                      },
+                                      "CABIN_BAGGAGE_ALLOWANCE": {
+                                        "status": "INC",
+                                        "name": "CABIN_BAGGAGE_ALLOWANCE",
+                                        "value": "7",
+                                        "text": "",
+                                        "unit": "KGS",
+                                        "valueType": "NUMERIC",
+                                        "important": false
+                                      }
+                                    },
+                                    "fareFamilyName": "Economy Saver",
+                                    "fareType": "REGULAR",
+                                    "validatingCarrier": "AI"
+                                  }
+                                ]
+                              }
+                            },
+                            "bookingFareInfo": {
+                              "paxWiseFare": {
+                                "ADULT": {
+                                  "base": 3033,
+                                  "taxes": 1047,
+                                  "serviceFee": 0,
+                                  "convenienceFee": 0,
+                                  "instantDiscount": 0,
+                                  "preApDiscntInfo": [],
+                                  "totalFare": 4080,
+                                  "taxesSummary": [
+                                    {
+                                      "a": 218,
+                                      "c": "IN",
+                                      "m": ""
+                                    },
+                                    {
+                                      "a": 173,
+                                      "c": "K3",
+                                      "m": ""
+                                    },
+                                    {
+                                      "a": 236,
+                                      "c": "P2",
+                                      "m": ""
+                                    },
+                                    {
+                                      "a": 420,
+                                      "c": "YR",
+                                      "m": ""
+                                    }
+                                  ],
+                                  "airlineFixedFeesList": [],
+                                  "airlineFixedFee": 0
+                                }
+                              },
+                              "totalFare": {
+                                "base": 3033,
+                                "taxes": 1047,
+                                "serviceFee": 0,
+                                "convenienceFee": 245,
+                                "instantDiscount": 0,
+                                "preApDiscntInfo": [],
+                                "slashedTotalFare": 4325,
+                                "totalFare": 4325,
+                                "taxesSummary": [
+                                  {
+                                    "a": 236,
+                                    "c": "P2",
+                                    "m": ""
+                                  },
+                                  {
+                                    "a": 218,
+                                    "c": "IN",
+                                    "m": ""
+                                  },
+                                  {
+                                    "a": 173,
+                                    "c": "K3",
+                                    "m": ""
+                                  },
+                                  {
+                                    "a": 420,
+                                    "c": "YR",
+                                    "m": ""
+                                  }
+                                ],
+                                "airlineFixedFeesList": [],
+                                "airlineFixedFee": 0
+                              }
+                            }
+                          }
+                        },
+                        "itineraryId": "1a0e27600c4256c95f7ad3b608ea9800b982e028",
+                        "airlineCodeMap": {
+                          "9I": {
+                            "name": "Alliance Air"
+                          },
+                          "AI": {
+                            "name": "Air India"
+                          }
+                        },
+                        "cityCodeMap": {
+                          "BOM": {
+                            "name": "Mumbai",
+                            "country": "India",
+                            "countryCode": "IN",
+                            "timeZone": "Asia/Kolkata",
+                            "airportName": "Chhatrapati Shivaji International Airport"
+                          },
+                          "MYQ": {
+                            "name": "Mysore",
+                            "country": "India",
+                            "countryCode": "IN",
+                            "timeZone": "Asia/Kolkata",
+                            "airportName": "Mysore Airport"
+                          },
+                          "BLR": {
+                            "name": "Bengaluru",
+                            "country": "India",
+                            "countryCode": "IN",
+                            "timeZone": "Asia/Kolkata",
+                            "airportName": "Bengaluru International Airport"
+                          },
+                          "COK": {
+                            "name": "Kochi",
+                            "country": "India",
+                            "countryCode": "IN",
+                            "timeZone": "Asia/Kolkata",
+                            "airportName": "Cochin International Airport Limited"
+                          }
+                        },
+                        "flightLookUpMap": {
+                          "COK$BOM$2022-05-18 20:10$AI-699": {
+                            "marketingAirline": "AI",
+                            "operatingAirline": "AI",
+                            "flightNum": "699",
+                            "aircraftType": "32B",
+                            "departureInfo": {
+                              "terminal": "1",
+                              "airportName": "Cochin International Airport Limited",
+                              "airportCode": "COK"
+                            },
+                            "arrivalInfo": {
+                              "terminal": "2",
+                              "airportName": "Chhatrapati Shivaji International Airport",
+                              "airportCode": "BOM"
+                            },
+                            "techStops": [],
+                            "depTime": "2022-05-18 20:10",
+                            "arrTime": "2022-05-18 22:25",
+                            "durationInMins": 135
+                          },
+                          "BLR$MYQ$COK$2022-05-18 09:00$AI-9505": {
+                            "marketingAirline": "AI",
+                            "operatingAirline": "9I",
+                            "flightNum": "9505",
+                            "aircraftType": "ATR",
+                            "departureInfo": {
+                              "terminal": "",
+                              "airportName": "Bengaluru International Airport",
+                              "airportCode": "BLR"
+                            },
+                            "arrivalInfo": {
+                              "terminal": "1",
+                              "airportName": "Cochin International Airport Limited",
+                              "airportCode": "COK"
+                            },
+                            "techStops": [
+                              {
+                                "durationInMinutes": 25,
+                                "locationInfo": {
+                                  "terminal": "",
+                                  "airportName": "Mysore Airport",
+                                  "airportCode": "MYQ"
+                                },
+                                "depTime": "2022-05-18 10:25",
+                                "arrTime": "2022-05-18 10:00"
+                              }
+                            ],
+                            "depTime": "2022-05-18 09:00",
+                            "arrTime": "2022-05-18 11:25",
+                            "durationInMins": 145
+                          }
+                        },
+                        "fareServiceLookUpMap": {},
+                        "statusCode": 0
+                      }
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1,
+                      "description": "represent the response status  SUCCESS/FAILED"
+                    },
+                    "statusCode": {
+                      "type": "number",
+                      "description": "represent the http status code 200, 400, 500 , 504"
+                    },
+                    "review": {
+                      "type": "object",
+                      "required": [
+                        "recomendation",
+                        "itineraryId",
+                        "airlineCodeMap",
+                        "cityCodeMap",
+                        "flightLookUpMap"
+                      ],
+                      "description": "represent reviewed recommendation details ",
+                      "properties": {
+                        "recomendation": {
+                          "type": "object",
+                          "required": [
+                            "journeyList",
+                            "fareInfo"
+                          ],
+                          "description": "represent recommendation Object . Please refer the definition in search API under SIMPLE response schema",
+                          "properties": {
+                            "journeyList": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "minItems": 1,
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "journeyKey": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "buddyResult": {
+                                    "type": "boolean"
+                                  },
+                                  "depDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "arrDate": {
+                                    "type": "string",
+                                    "minLength": 1
+                                  },
+                                  "durationInMins": {
+                                    "type": "number"
+                                  },
+                                  "flightPnrLookupInfo": {
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                    "minItems": 1,
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "flyingDay": {
+                                          "type": "number"
+                                        },
+                                        "flightLookupKey": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "pnrGroupNum": {
+                                          "type": "number"
+                                        },
+                                        "prevFlightConnectingType": {
+                                          "type": "string",
+                                          "minLength": 1
+                                        },
+                                        "prevFlightConnectingDurationInMins": {
+                                          "type": "number"
+                                        }
+                                      },
+                                      "required": [
+                                        "flyingDay",
+                                        "flightLookupKey",
+                                        "pnrGroupNum",
+                                        "prevFlightConnectingType",
+                                        "prevFlightConnectingDurationInMins"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "journeyKey",
+                                  "buddyResult",
+                                  "depDate",
+                                  "arrDate",
+                                  "durationInMins"
+                                ]
+                              }
+                            },
+                            "fareInfo": {
+                              "type": "object",
+                              "required": [
+                                "pnrGrpdMultiFareInfo",
+                                "bookingFareInfo"
+                              ],
+                              "properties": {
+                                "pnrGrpdMultiFareInfo": {
+                                  "type": "object",
+                                  "required": [
+                                    "0"
+                                  ],
+                                  "properties": {
+                                    "0": {
+                                      "type": "object",
+                                      "required": [
+                                        "fareInfos"
+                                      ],
+                                      "properties": {
+                                        "fareInfos": {
+                                          "type": "array",
+                                          "uniqueItems": true,
+                                          "minItems": 1,
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "paxWiseFare": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "ADULT": {
+                                                    "type": "object",
+                                                    "required": [
+                                                      "base",
+                                                      "taxes",
+                                                      "serviceFee",
+                                                      "convenienceFee",
+                                                      "instantDiscount",
+                                                      "totalFare",
+                                                      "taxesSummary",
+                                                      "airlineFixedFeesList",
+                                                      "airlineFixedFee"
+                                                    ],
+                                                    "properties": {
+                                                      "base": {
+                                                        "type": "number"
+                                                      },
+                                                      "taxes": {
+                                                        "type": "number"
+                                                      },
+                                                      "serviceFee": {
+                                                        "type": "number"
+                                                      },
+                                                      "convenienceFee": {
+                                                        "type": "number"
+                                                      },
+                                                      "instantDiscount": {
+                                                        "type": "number"
+                                                      },
+                                                      "totalFare": {
+                                                        "type": "number"
+                                                      },
+                                                      "taxesSummary": {
+                                                        "type": "array",
+                                                        "uniqueItems": true,
+                                                        "minItems": 1,
+                                                        "items": {
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "a": {
+                                                              "type": "number"
+                                                            },
+                                                            "c": {
+                                                              "type": "string",
+                                                              "minLength": 1
+                                                            },
+                                                            "m": {
+                                                              "type": "string"
+                                                            }
+                                                          },
+                                                          "required": [
+                                                            "a",
+                                                            "c",
+                                                            "m"
+                                                          ]
+                                                        }
+                                                      },
+                                                      "airlineFixedFeesList": {
+                                                        "type": "array",
+                                                        "items": {
+                                                          "type": "object"
+                                                        }
+                                                      },
+                                                      "airlineFixedFee": {
+                                                        "type": "number"
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "required": [
+                                                  "ADULT"
+                                                ]
+                                              },
+                                              "totalFare": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "base": {
+                                                    "type": "number"
+                                                  },
+                                                  "taxes": {
+                                                    "type": "number"
+                                                  },
+                                                  "serviceFee": {
+                                                    "type": "number"
+                                                  },
+                                                  "convenienceFee": {
+                                                    "type": "number"
+                                                  },
+                                                  "instantDiscount": {
+                                                    "type": "number"
+                                                  },
+                                                  "totalFare": {
+                                                    "type": "number"
+                                                  },
+                                                  "airlineFixedFee": {
+                                                    "type": "number"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "base",
+                                                  "taxes",
+                                                  "serviceFee",
+                                                  "convenienceFee",
+                                                  "instantDiscount",
+                                                  "totalFare",
+                                                  "airlineFixedFee"
+                                                ]
+                                              },
+                                              "fareServices": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "REFUNDABLE": {
+                                                    "type": "object",
+                                                    "required": [
+                                                      "status",
+                                                      "name",
+                                                      "value",
+                                                      "text",
+                                                      "unit",
+                                                      "valueType",
+                                                      "important"
+                                                    ],
+                                                    "properties": {
+                                                      "status": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "name": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "value": {
+                                                        "type": "string"
+                                                      },
+                                                      "text": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "unit": {
+                                                        "type": "string"
+                                                      },
+                                                      "valueType": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "important": {
+                                                        "type": "boolean"
+                                                      }
+                                                    }
+                                                  },
+                                                  "MIN_TICKETING_TIME": {
+                                                    "type": "object",
+                                                    "required": [
+                                                      "status",
+                                                      "name",
+                                                      "value",
+                                                      "text",
+                                                      "unit",
+                                                      "valueType",
+                                                      "important"
+                                                    ],
+                                                    "properties": {
+                                                      "status": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "name": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "value": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "text": {
+                                                        "type": "string"
+                                                      },
+                                                      "unit": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "valueType": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "important": {
+                                                        "type": "boolean"
+                                                      }
+                                                    }
+                                                  },
+                                                  "AMENDABLE": {
+                                                    "type": "object",
+                                                    "required": [
+                                                      "status",
+                                                      "name",
+                                                      "value",
+                                                      "text",
+                                                      "unit",
+                                                      "valueType",
+                                                      "important"
+                                                    ],
+                                                    "properties": {
+                                                      "status": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "name": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "value": {
+                                                        "type": "string"
+                                                      },
+                                                      "text": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "unit": {
+                                                        "type": "string"
+                                                      },
+                                                      "valueType": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "important": {
+                                                        "type": "boolean"
+                                                      }
+                                                    }
+                                                  },
+                                                  "CHECKIN_BAGGAGE_ALLOWANCE": {
+                                                    "type": "object",
+                                                    "required": [
+                                                      "status",
+                                                      "name",
+                                                      "value",
+                                                      "text",
+                                                      "unit",
+                                                      "valueType",
+                                                      "important"
+                                                    ],
+                                                    "properties": {
+                                                      "status": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "name": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "value": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "text": {
+                                                        "type": "string"
+                                                      },
+                                                      "unit": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "valueType": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "important": {
+                                                        "type": "boolean"
+                                                      }
+                                                    }
+                                                  },
+                                                  "MAX_TICKETING_TIME": {
+                                                    "type": "object",
+                                                    "required": [
+                                                      "status",
+                                                      "name",
+                                                      "value",
+                                                      "text",
+                                                      "unit",
+                                                      "valueType",
+                                                      "important"
+                                                    ],
+                                                    "properties": {
+                                                      "status": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "name": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "value": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "text": {
+                                                        "type": "string"
+                                                      },
+                                                      "unit": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "valueType": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "important": {
+                                                        "type": "boolean"
+                                                      }
+                                                    }
+                                                  },
+                                                  "CABIN_BAGGAGE_ALLOWANCE": {
+                                                    "type": "object",
+                                                    "required": [
+                                                      "status",
+                                                      "name",
+                                                      "value",
+                                                      "text",
+                                                      "unit",
+                                                      "valueType",
+                                                      "important"
+                                                    ],
+                                                    "properties": {
+                                                      "status": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "name": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "value": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "text": {
+                                                        "type": "string"
+                                                      },
+                                                      "unit": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "valueType": {
+                                                        "type": "string",
+                                                        "minLength": 1
+                                                      },
+                                                      "important": {
+                                                        "type": "boolean"
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "required": [
+                                                  "REFUNDABLE",
+                                                  "MIN_TICKETING_TIME",
+                                                  "AMENDABLE",
+                                                  "CHECKIN_BAGGAGE_ALLOWANCE",
+                                                  "MAX_TICKETING_TIME",
+                                                  "CABIN_BAGGAGE_ALLOWANCE"
+                                                ]
+                                              },
+                                              "fareFamilyName": {
+                                                "type": "string",
+                                                "minLength": 1
+                                              },
+                                              "fareType": {
+                                                "type": "string",
+                                                "minLength": 1
+                                              },
+                                              "validatingCarrier": {
+                                                "type": "string",
+                                                "minLength": 1
+                                              }
+                                            },
+                                            "required": [
+                                              "fareFamilyName",
+                                              "fareType",
+                                              "validatingCarrier"
+                                            ]
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "bookingFareInfo": {
+                                  "type": "object",
+                                  "required": [
+                                    "paxWiseFare",
+                                    "totalFare"
+                                  ],
+                                  "properties": {
+                                    "paxWiseFare": {
+                                      "type": "object",
+                                      "required": [
+                                        "ADULT"
+                                      ],
+                                      "properties": {
+                                        "ADULT": {
+                                          "type": "object",
+                                          "required": [
+                                            "base",
+                                            "taxes",
+                                            "serviceFee",
+                                            "convenienceFee",
+                                            "instantDiscount",
+                                            "preApDiscntInfo",
+                                            "totalFare",
+                                            "taxesSummary",
+                                            "airlineFixedFeesList",
+                                            "airlineFixedFee"
+                                          ],
+                                          "properties": {
+                                            "base": {
+                                              "type": "number"
+                                            },
+                                            "taxes": {
+                                              "type": "number"
+                                            },
+                                            "serviceFee": {
+                                              "type": "number"
+                                            },
+                                            "convenienceFee": {
+                                              "type": "number"
+                                            },
+                                            "instantDiscount": {
+                                              "type": "number"
+                                            },
+                                            "preApDiscntInfo": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object"
+                                              }
+                                            },
+                                            "totalFare": {
+                                              "type": "number"
+                                            },
+                                            "taxesSummary": {
+                                              "type": "array",
+                                              "uniqueItems": true,
+                                              "minItems": 1,
+                                              "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "a": {
+                                                    "type": "number"
+                                                  },
+                                                  "c": {
+                                                    "type": "string",
+                                                    "minLength": 1
+                                                  },
+                                                  "m": {
+                                                    "type": "string"
+                                                  }
+                                                },
+                                                "required": [
+                                                  "a",
+                                                  "c",
+                                                  "m"
+                                                ]
+                                              }
+                                            },
+                                            "airlineFixedFeesList": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "object"
+                                              }
+                                            },
+                                            "airlineFixedFee": {
+                                              "type": "number"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "totalFare": {
+                                      "type": "object",
+                                      "required": [
+                                        "base",
+                                        "taxes",
+                                        "serviceFee",
+                                        "convenienceFee",
+                                        "instantDiscount",
+                                        "preApDiscntInfo",
+                                        "slashedTotalFare",
+                                        "totalFare",
+                                        "taxesSummary",
+                                        "airlineFixedFeesList",
+                                        "airlineFixedFee"
+                                      ],
+                                      "properties": {
+                                        "base": {
+                                          "type": "number"
+                                        },
+                                        "taxes": {
+                                          "type": "number"
+                                        },
+                                        "serviceFee": {
+                                          "type": "number"
+                                        },
+                                        "convenienceFee": {
+                                          "type": "number"
+                                        },
+                                        "instantDiscount": {
+                                          "type": "number"
+                                        },
+                                        "preApDiscntInfo": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object"
+                                          }
+                                        },
+                                        "slashedTotalFare": {
+                                          "type": "number"
+                                        },
+                                        "totalFare": {
+                                          "type": "number"
+                                        },
+                                        "taxesSummary": {
+                                          "type": "array",
+                                          "uniqueItems": true,
+                                          "minItems": 1,
+                                          "items": {
+                                            "type": "object",
+                                            "properties": {
+                                              "a": {
+                                                "type": "number"
+                                              },
+                                              "c": {
+                                                "type": "string",
+                                                "minLength": 1
+                                              },
+                                              "m": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "required": [
+                                              "a",
+                                              "c",
+                                              "m"
+                                            ]
+                                          }
+                                        },
+                                        "airlineFixedFeesList": {
+                                          "type": "array",
+                                          "items": {
+                                            "type": "object"
+                                          }
+                                        },
+                                        "airlineFixedFee": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "itineraryId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "unique itinerary id generated for the rkey or booking combination. This itid has to be used in subsequent API's as mandatory parameter "
+                        },
+                        "airlineCodeMap": {
+                          "type": "object",
+                          "required": [
+                            "9I",
+                            "AI"
+                          ],
+                          "description": "Please refer the search response schema ",
+                          "properties": {
+                            "9I": {
+                              "type": "object",
+                              "required": [
+                                "name"
+                              ],
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "AI": {
+                              "type": "object",
+                              "required": [
+                                "name"
+                              ],
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "cityCodeMap": {
+                          "type": "object",
+                          "required": [
+                            "BOM",
+                            "MYQ",
+                            "BLR",
+                            "COK"
+                          ],
+                          "description": "Please refer the search response schema",
+                          "properties": {
+                            "BOM": {
+                              "type": "object",
+                              "required": [
+                                "name",
+                                "country",
+                                "countryCode",
+                                "timeZone",
+                                "airportName"
+                              ],
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "country": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "countryCode": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "timeZone": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "airportName": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "MYQ": {
+                              "type": "object",
+                              "required": [
+                                "name",
+                                "country",
+                                "countryCode",
+                                "timeZone",
+                                "airportName"
+                              ],
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "country": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "countryCode": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "timeZone": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "airportName": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "BLR": {
+                              "type": "object",
+                              "required": [
+                                "name",
+                                "country",
+                                "countryCode",
+                                "timeZone",
+                                "airportName"
+                              ],
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "country": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "countryCode": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "timeZone": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "airportName": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            },
+                            "COK": {
+                              "type": "object",
+                              "required": [
+                                "name",
+                                "country",
+                                "countryCode",
+                                "timeZone",
+                                "airportName"
+                              ],
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "country": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "countryCode": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "timeZone": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "airportName": {
+                                  "type": "string",
+                                  "minLength": 1
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "flightLookUpMap": {
+                          "type": "object",
+                          "required": [
+                            "COK$BOM$2022-05-18 20:10$AI-699",
+                            "BLR$MYQ$COK$2022-05-18 09:00$AI-9505"
+                          ],
+                          "description": "Please refer the search response schema",
+                          "properties": {
+                            "COK$BOM$2022-05-18 20:10$AI-699": {
+                              "type": "object",
+                              "required": [
+                                "marketingAirline",
+                                "operatingAirline",
+                                "flightNum",
+                                "aircraftType",
+                                "departureInfo",
+                                "arrivalInfo",
+                                "techStops",
+                                "depTime",
+                                "arrTime",
+                                "durationInMins"
+                              ],
+                              "properties": {
+                                "marketingAirline": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "operatingAirline": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "flightNum": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "aircraftType": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "departureInfo": {
+                                  "type": "object",
+                                  "required": [
+                                    "terminal",
+                                    "airportName",
+                                    "airportCode"
+                                  ],
+                                  "properties": {
+                                    "terminal": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "airportName": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "airportCode": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "arrivalInfo": {
+                                  "type": "object",
+                                  "required": [
+                                    "terminal",
+                                    "airportName",
+                                    "airportCode"
+                                  ],
+                                  "properties": {
+                                    "terminal": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "airportName": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "airportCode": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "techStops": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object"
+                                  }
+                                },
+                                "depTime": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "arrTime": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "durationInMins": {
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "BLR$MYQ$COK$2022-05-18 09:00$AI-9505": {
+                              "type": "object",
+                              "required": [
+                                "marketingAirline",
+                                "operatingAirline",
+                                "flightNum",
+                                "aircraftType",
+                                "departureInfo",
+                                "arrivalInfo",
+                                "techStops",
+                                "depTime",
+                                "arrTime",
+                                "durationInMins"
+                              ],
+                              "properties": {
+                                "marketingAirline": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "operatingAirline": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "flightNum": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "aircraftType": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "departureInfo": {
+                                  "type": "object",
+                                  "required": [
+                                    "terminal",
+                                    "airportName",
+                                    "airportCode"
+                                  ],
+                                  "properties": {
+                                    "terminal": {
+                                      "type": "string"
+                                    },
+                                    "airportName": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "airportCode": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "arrivalInfo": {
+                                  "type": "object",
+                                  "required": [
+                                    "terminal",
+                                    "airportName",
+                                    "airportCode"
+                                  ],
+                                  "properties": {
+                                    "terminal": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "airportName": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "airportCode": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    }
+                                  }
+                                },
+                                "techStops": {
+                                  "type": "array",
+                                  "uniqueItems": true,
+                                  "minItems": 1,
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "durationInMinutes": {
+                                        "type": "number"
+                                      },
+                                      "locationInfo": {
+                                        "type": "object",
+                                        "properties": {
+                                          "terminal": {
+                                            "type": "string"
+                                          },
+                                          "airportName": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          },
+                                          "airportCode": {
+                                            "type": "string",
+                                            "minLength": 1
+                                          }
+                                        },
+                                        "required": [
+                                          "terminal",
+                                          "airportName",
+                                          "airportCode"
+                                        ]
+                                      },
+                                      "depTime": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "arrTime": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      }
+                                    },
+                                    "required": [
+                                      "durationInMinutes",
+                                      "depTime",
+                                      "arrTime"
+                                    ]
+                                  }
+                                },
+                                "depTime": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "arrTime": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "durationInMins": {
+                                  "type": "number"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "statusCode",
+                    "review"
+                  ]
+                },
+                "examples": {}
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "x-examples": {
+                    "example-1": {
+                      "status": "FAILED",
+                      "errors": [
+                        {
+                          "code": "8244",
+                          "message": "REVIEW_STATE_NOT_PRESENT",
+                          "description": "Go Biz review state not present for given itinerary id"
+                        }
+                      ],
+                      "warning": null,
+                      "statusCode": 400
+                    }
+                  },
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "errors": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "message": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "description": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "code",
+                          "message",
+                          "description"
+                        ]
+                      }
+                    },
+                    "statusCode": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "errors",
+                    "statusCode"
+                  ]
+                },
+                "examples": {}
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "errors": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "required": [
+                          "code",
+                          "message",
+                          "description"
+                        ],
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "message": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "description": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    },
+                    "statusCode": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "errors",
+                    "statusCode"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "status": "string",
+                      "errors": [
+                        {
+                          "code": "string",
+                          "message": "string",
+                          "description": "string"
+                        }
+                      ],
+                      "statusCode": 0
+                    }
+                  }
+                },
+                "examples": {}
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "errors": {
+                      "type": "array",
+                      "uniqueItems": true,
+                      "minItems": 1,
+                      "items": {
+                        "required": [
+                          "code",
+                          "message",
+                          "description"
+                        ],
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "message": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "description": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        }
+                      }
+                    },
+                    "statusCode": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "errors",
+                    "statusCode"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "status": "string",
+                      "errors": [
+                        {
+                          "code": "string",
+                          "message": "string",
+                          "description": "string"
+                        }
+                      ],
+                      "statusCode": 0
+                    }
+                  }
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
+        "operationId": "get-flights-gobiz-search-v1-review",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "rKey ",
+            "description": "rkey provided in search response."
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "itId",
+            "description": "ItineraryId provided as part of review response "
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "android or ios or windows"
+            },
+            "in": "header",
+            "name": "x-gommt-os",
+            "description": "user device operating system "
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "7.5.6"
+            },
+            "in": "header",
+            "name": "x-gommt-app-ver",
+            "description": "user device app version"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "visitorid123344566"
+            },
+            "in": "header",
+            "name": "x-gommt-vid",
+            "description": "visitor id"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "marketingcloudid1234545"
+            },
+            "in": "header",
+            "name": "x-gommt-mcid ",
+            "description": "marketing cloud id "
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "cshcgahdcadsfjafdhfajfdsjfas"
+            },
+            "in": "header",
+            "name": "x-gommt-device-id ",
+            "description": "user device id"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ANDROID",
+                "IOS",
+                "DESKTOP",
+                "PWA"
+              ],
+              "example": "ANDROID"
+            },
+            "in": "header",
+            "name": "x-gommt-pfm ",
+            "description": "platform from which request is coming "
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "Google Chrome X.4"
+            },
+            "in": "header",
+            "name": "x-gommt-user-agent ",
+            "description": "user agent"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "timezone"
+            },
+            "in": "header",
+            "name": "x-gommt-timezone ",
+            "description": "time zone"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "requestid122334434"
+            },
+            "in": "header",
+            "name": "x-gommt-request-id ",
+            "required": true,
+            "description": "request id used for tracking "
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "x-gommt-user-phonenum ",
+            "required": true,
+            "description": "user phone number "
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "x-gommt-user-countrycode",
+            "required": true,
+            "description": "user phone country code "
+          },
+          {
+            "schema": {
+              "type": "string",
+              "example": "b28d7069a306a06ef138a444136d79906aa8558c"
+            },
+            "in": "query",
+            "name": "itId",
+            "description": "ItineraryId provided as part of review response ",
+            "required": true
+          }
+        ],
+        "description": "Airline Addons API for fetching airline addons"
+      },
+      "parameters": []
+    },
     "/flights-gobiz-search/v1/apply-coupon": {
       "parameters": [],
       "post": {
@@ -19748,6 +21522,11 @@
           "description": "This API is POST operation takes travellers details and contact details as an input along with the itinerary id provided as part of review response and booking id provided as part of generate booking id API. It also expects the client order or unique id for this transaction. \n\nThis API validates the user inputs i.e., traveller detail and contact details if everything is as per the defined rules then API holds the fare at airline and return the response along with payId.  \n\nPAYID is payment id of makemytrip which must be used to confirm booking. "
         },
         "x-internal": false
+      }
+    },
+    "/flights-gobiz-search/v1/": {
+      "get": {
+        "description": ""
       }
     }
   },
