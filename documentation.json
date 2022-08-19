@@ -10133,8 +10133,9 @@
               "type": "string"
             },
             "in": "query",
-            "name": "rKey ",
-            "description": "rkey provided in search response."
+            "name": "ff",
+            "description": "Comma separated add on types for airline",
+            "required": true
           },
           {
             "schema": {
@@ -10142,7 +10143,8 @@
             },
             "in": "query",
             "name": "itId",
-            "description": "ItineraryId provided as part of review response "
+            "description": "ItineraryId provided as part of review response ",
+            "required": true
           },
           {
             "schema": {
@@ -10252,12 +10254,11 @@
           },
           {
             "schema": {
-              "type": "string",
-              "example": "b28d7069a306a06ef138a444136d79906aa8558c"
+              "type": "string"
             },
             "in": "query",
-            "name": "itId",
-            "description": "ItineraryId provided as part of review response ",
+            "name": "crId",
+            "description": "request id that used for tracking purpose, same value as received in headers",
             "required": true
           }
         ],
