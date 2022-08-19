@@ -25181,24 +25181,6 @@
                     {
                         "schema":
                         {
-                            "type": "string"
-                        },
-                        "in": "query",
-                        "name": "rKey ",
-                        "description": "rkey provided in search response."
-                    },
-                    {
-                        "schema":
-                        {
-                            "type": "string"
-                        },
-                        "in": "query",
-                        "name": "itId",
-                        "description": "ItineraryId provided as part of review response "
-                    },
-                    {
-                        "schema":
-                        {
                             "type": "string",
                             "example": "android or ios or windows"
                         },
@@ -25323,6 +25305,17 @@
                         "in": "query",
                         "name": "itId",
                         "description": "ItineraryId provided as part of review response ",
+                        "required": true
+                    },
+                    {
+                        "schema":
+                        {
+                            "type": "string",
+                            "example": "SEATS,MEALS,BAGGAGE"
+                        },
+                        "in": "query",
+                        "name": "ff",
+                        "description": "Comma separated list of Add on types for airline",
                         "required": true
                     }
                 ],
